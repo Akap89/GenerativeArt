@@ -1,0 +1,49 @@
+float circle_x = 0;
+float rect_y = 0;
+float slow_circle_x = 0;
+float fast_circle_x = 0;
+
+
+void setup() {
+  size(500, 500);
+  frameRate(8);
+}
+
+void draw() {
+  background(random(255), random(256), random(256));
+  stroke(random(100,256),random(130,200),random(99,90));
+  
+  float distance_top = random(250);
+  float distance_left = random(250);
+  float slow_circle_size = 200;
+  
+  if(random(10) > 5) {
+    slow_circle_size = 60;
+  }
+  
+  line(distance_left,0, distance_left,500);
+   line(0,distance_top, 500,distance_top);
+   
+   rectMode(0);
+  fill(random(204), random(250), random(199));
+ 
+
+ 
+
+  
+  rect(rect_y, 200, 150, 150);
+  ellipse(circle_x, 350, 350, 150);
+  slow_circle_x = slow_circle_x +100;
+  rect_y = rect_y -2;
+  
+  ellipse(fast_circle_x, slow_circle_size, slow_circle_size, 150);
+  fast_circle_x = slow_circle_x +60;
+  
+  if(slow_circle_x > 500) {
+    slow_circle_x = 0;
+    
+    if(fast_circle_x > 500) {
+      fast_circle_x = 10;
+    }
+  }
+}
