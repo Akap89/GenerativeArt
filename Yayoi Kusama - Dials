@@ -1,0 +1,34 @@
+float r = 10;
+
+void setup() {
+  size(800, 800);
+  background(0);
+  smooth();
+  noStroke();
+ 
+  
+}
+
+void draw() {
+  if (mousePressed == true) {
+    point(mouseX,mouseY);
+  
+  translate(width/2, height/2);
+  fill(random(255), random(256), random(256));
+  rotate(r);
+  ellipse(100, 100, 80, 80);
+  ellipse(300, 100, 80, 80);
+  ellipse(100, 300, 80, 80);
+  ellipse(300, 300, 80, 80);
+   float circle_size = random(5,15);
+  ellipse(200 + r, 10, circle_size, circle_size);
+  r = r + 0.2;
+  println(r);
+  
+  }
+}
+
+
+void keyPressed() {
+save("Kusama_1.jpg");
+}
